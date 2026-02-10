@@ -1,0 +1,50 @@
+<div hlmItemGroup class="gap-4">
+  @for (bike of bikes(); track bike.id) {
+    <a hlmItem variant="outline" role="listitem" href="#">
+      <div hlmItemMedia>
+        <img
+          [src]="bike.large_img"
+          [alt]="bike.title"
+          width="256"
+          height="256"
+          class="object-cover aspect-square"
+        />
+      </div>
+
+      <div hlmItemContent class="h-full">
+        <div hlmItemTitle class="line-clamp-1 text-xl">
+          {{ bike.title }}
+        </div>
+        <p hlmItemDescription><b>Serial</b>: {{ bike.serial }}</p>
+        <p hlmItemDescription><b>Primary Colors: </b>: {{ bike.frame_colors.join(', ') }}</p>
+        @if (bike.description) {
+          <p hlmItemDescription><b>Additional Notes: </b>{{ bike.description }}</p>
+        }
+      </div>
+
+      <div hlmItemContent class="flex-none text-center">
+        <!-- <p hlmItemDescription>{{ bike.duration }}</p> -->
+      </div>
+    </a>
+  }
+</div>
+
+<!-- <div hlmItemGroup class="grid grid-cols-3 gap-4">
+  @for (bike of bikes(); track bike.id) {
+    <div hlmItem variant="outline">
+      <div hlmItemHeader>
+        <img
+          [src]="bike.large_img"
+          [alt]="bike.title"
+          width="128"
+          height="128"
+          class="aspect-square w-full rounded-sm object-cover"
+        />
+      </div>
+      <div hlmItemContent>
+        <div hlmItemTitle>{{ bike.title }}</div>
+        <p hlmItemDescription>{{ bike.description }}</p>
+      </div>
+    </div>
+  }
+</div> -->
