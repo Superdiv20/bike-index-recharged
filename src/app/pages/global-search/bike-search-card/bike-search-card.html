@@ -1,0 +1,61 @@
+<div
+  class="overflow-hidden rounded-lg bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
+>
+  <div class="flex gap-6 px-4 py-5 sm:p-6">
+    <div>
+      @if (bike().large_img) {
+        <div hlmItemMedia>
+          <img
+            [src]="bike().large_img"
+            [alt]="bike().title"
+            width="256"
+            height="256"
+            class="h-35 w-45 rounded-xl object-cover"
+          />
+        </div>
+      } @else {
+        <div class="h-35 w-45 rounded-xl flex items-center justify-center">
+          <ng-icon name="lucideBike" hlmIcon size="xl" class="text-gray-500"></ng-icon>
+        </div>
+      }
+    </div>
+
+    <div class="flex flex-1 flex-col gap-4">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="m-0 text-xl font-semibold text-foreground">{{ bike().title }}</h3>
+          <p class="mt-1 text-sm text-muted-foreground">Serial: {{ bike().serial }}</p>
+        </div>
+        @if (bike().stolen) {
+          <span
+            class="rounded-full bg-red-100 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.5px] text-red-700"
+          >
+            Stolen
+          </span>
+        } @else {
+          <span
+            class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.5px] text-gray-700"
+          >
+            {{ bike().status | titlecase }}
+          </span>
+        }
+      </div>
+
+      <div class="flex gap-6 text-sm text-zinc-700">
+        <div class="flex items-center gap-1.5">
+          <ng-icon name="lucideMapPin"></ng-icon>
+          <span>{{ bike().stolen_location }}</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <ng-icon name="lucideClock"></ng-icon>
+          <span>{{ stolenDate() | date: 'shortTime' }}</span>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <ng-icon name="lucidePalette"></ng-icon>
+          <span>{{ colors() }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

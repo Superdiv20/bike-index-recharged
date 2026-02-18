@@ -1,32 +1,27 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { provideIcons } from '@ng-icons/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideAlertTriangle,
   lucideFileText,
   lucideHeart,
   lucideHelpCircle,
+  lucideMenu,
   lucideSearch,
   lucideStore,
 } from '@ng-icons/lucide';
 import { HlmIconImports } from '@spartan-ng/helm/icon';
 
-import { HlmNavigationMenuImports } from '@spartan-ng/helm/navigation-menu';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HlmNavigationMenuImports, HlmIconImports, HlmButtonImports],
+  imports: [RouterOutlet, HlmIconImports, HlmButtonImports, NgIcon],
   templateUrl: './app.html',
   styleUrl: './app.css',
   providers: [
     provideIcons({
-      lucideSearch,
-      lucideStore,
-      lucideFileText,
-      lucideHeart,
-      lucideAlertTriangle,
-      lucideHelpCircle,
+      lucideMenu,
     }),
   ],
 })
